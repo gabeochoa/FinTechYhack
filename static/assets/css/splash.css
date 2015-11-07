@@ -1,0 +1,37 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #212121;
+}
+
+h1.logo {
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 100;
+	font-size: 144px;
+	color: #FAFAFA;
+	margin: 0;
+	padding: 30px;
+}
+
+h2 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	font-size: 54px;
+	color: #FAFAFA;
+	margin: 0;
+	padding: 30px;
+	line-height: 64px;
+}
+
+i.down-arrow {
+	position: relative;
+	top: 10px;
+	font-size: 64px;
+	color: #FAFAFA;
+}
+
+i.down-arrow:hover {
+	color: #BDBDBD;
+}
