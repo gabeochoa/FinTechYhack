@@ -5,9 +5,8 @@ from pprint import pprint
 
 def main():
     client = fn.FiscalNoteClient(fiscalnotekey)
-    john_data = client.legislators(q='john')
-    pprint(john_data)
-
+    res = client.getFriends("CTL000104")
+    pprint(res)
 
 if __name__ == '__main__':
     main()
