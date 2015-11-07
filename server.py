@@ -12,5 +12,13 @@ fn_client = fn.FiscalNoteClient(fiscalnotekey)
 def hello():
     return json.dumps(fn_client.legislators(q="kevin", legislature="NY"))
 
+@app.route("/Person/<mem_id>")
+def viewProfile(mem_id):
+    ret = fn_client.getPersonFromID(mem_id)
+    strs = ""
+    for i in ret:
+        strs += str(i)
+    return strs
+
 if __name__ == "__main__":
     app.run()
