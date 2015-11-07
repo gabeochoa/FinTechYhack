@@ -1,19 +1,13 @@
 from keys import fiscalnotekey
-import requests
-import json
-from FNBill import FNBill
-from collections import namedtuple
+import fiscalnote as fn
+from pprint import pprint
 
-apik = '&apikey=' + fiscalnotekey
-url='https://api.fiscalnote.com/bills?q=taxi+private'+apik
 
-response = requests.get(url)
-data = response.json()
-#a = FNBill(data)
+def main():
+    client = fn.FiscalNoteClient(fiscalnotekey)
+    john_data = client.legislators(q='john')
+    pprint(john_data)
 
-client = FiscalNoteClient(fiscalnotekey)
-client.legislators(q='john', )
 
-print(data)
-#print(a.data[0])
-
+if __name__ == '__main__':
+    main()

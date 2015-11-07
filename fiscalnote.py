@@ -2,7 +2,7 @@ import requests
 
 
 class FiscalNoteClient(object):
-    _BASE_URL = 'https://api.fiscalnote.co'
+    _BASE_URL = 'https://api.fiscalnote.com'
     _API_PARAMS = (
         'q',
         'legislature',
@@ -18,6 +18,7 @@ class FiscalNoteClient(object):
         query_args = ['apikey={}'.format(self._api_key)]
         for param in self._API_PARAMS:
             if param in kwargs:
-                query_args.append('{}={}', param, kwargs[param])
-        query += query_args.join('+')
+                query_args.append('{}={}'.format(param, kwargs[param]))
+        query += '&'.join(query_args)
+        # print(query)
         return requests.get(query).json()
