@@ -24,6 +24,14 @@ class FiscalNoteClient(object):
         query += '&'.join(query_args)
         # print(query)
         return requests.get(query).json()
+    
+    def getPersonFromID(self, mem_id):
+        query = '{}/legislators?'.format(self._BASE_URL)
+        query_args = ['apikey={}'.format(self._api_key)]
+        query_args.append('{}={}'.format("id", mem_id))
+        query += '&'.join(query_args)
+        ll = requests.get(query).json()
+        return ll
 
     def getFriends(self, mem_id):
         query = '{}/legislators?'.format(self._BASE_URL)
