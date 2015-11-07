@@ -11,6 +11,9 @@ response = requests.get(url)
 data = response.json()
 #a = FNBill(data)
 
+client = FiscalNoteClient(fiscalnotekey)
+client.legislators(q='john', )
+
 print(data)
 #print(a.data[0])
 
