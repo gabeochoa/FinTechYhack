@@ -1,5 +1,7 @@
 import requests
 
+from pprint import pprint
+
 
 class FiscalNoteClient(object):
     _BASE_URL = 'https://api.fiscalnote.com'
@@ -29,8 +31,9 @@ class FiscalNoteClient(object):
         query_args.append('{}={}'.format("id", mem_id))
         query += '&'.join(query_args)
         #print(query)
-        retjson = [i['id'] for i in requests.get(query).json()]
-        return retjson
+        flist = [i['friends'] for i in requests.get(query).json() if i is not None and i["friends"] is not None]
+        retlist = [(i["legislator_id"], i["voting_similarity_score"]) for i in flist[0]["overall"]]
+        return retlist
 
     def bill(self, **kwargs):
         query = '{}/bill?'.format(self._BASE_URL)
