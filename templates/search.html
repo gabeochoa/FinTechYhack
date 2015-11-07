@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>------</title>
+    {% include 'includes/head.html' %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" />
+    <link href="http://fonts.googleapis.com/css?family=Exo+2:100" rel="stylesheet" type="text/css">
+  </head>
+  <!--
+  '''
+first_name, middle_name, computed_chamber, state, last_name, computed_party, chamber, updated_at, friends, office_phone, suffixes, birth_place, district, photo_url, roles, external_ids, birth_date, party, computed_district, job_title, id, full_name, email, gender, family, active, url, sources, home_city, addresses, last_elected,created_at,offices,next_election,old_roles,results,effectiveness,  
+!-->
+  <body class="valign-wrapper">
+    <div class="container valign center-align">
+      <div class="row">
+        <div class="col s12">
+          <h1 class="logo">Search</h1>
+           <form>
+          <input oninput="rangeInput.value=amount.value" 
+           id="click" type="text" value="Kirsten Gillebrand" name="name" 
+            />
+
+          </form>
+          <script type="text/javascript">
+            var stateObj = { foo: "bar" };
+            function change_my_url()
+            {
+               history.pushState(stateObj, "Search link.value", "/search?name="+link.value);
+            }
+            var link = document.getElementById('click');
+            link.addEventListener('click', change_my_url, false);
+            </script>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
