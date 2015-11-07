@@ -1,7 +1,5 @@
 import requests
 
-from pprint import pprint
-
 
 class FiscalNoteClient(object):
     _BASE_URL = 'https://api.fiscalnote.com'
@@ -25,10 +23,9 @@ class FiscalNoteClient(object):
         # print(query)
         return requests.get(query).json()
 
-    def getPersonFromID(self, mem_id):
-        query = '{}/legislator/{}?'.format(self._BASE_URL, mem_id)
-        query_args = ['apikey={}'.format(self._api_key)]
-        query += '&'.join(query_args)
+    def legislator(self, mem_id):
+        query = '{}/legislator/{}?apikey={}'.format(self._BASE_URL, mem_id,
+                                                    self._api_key)
         print(query)
         req = requests.get(query)
         if(req.status_code == 200):

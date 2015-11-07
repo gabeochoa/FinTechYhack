@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>------</title>
+    <title>Capitol Perception</title>
     {% include 'includes/head.html' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/splash.css') }}" />
     <link href="http://fonts.googleapis.com/css?family=Exo+2:100" rel="stylesheet" type="text/css">
@@ -15,20 +15,24 @@
           <h1 class="logo">Capitol Perception</h1>
           <!--<h3>Subtitle Goes Here </h3>!-->
 
-          <form action="JavaScript:handleClick()">
-                        <input type="text" id="search" style='font-size: 50px; text-align: center; color: #FFFFFF;' value = 'First Last'/>
-                    </form>
-
-        <script>
-            $(document).ready(function() {
-                $('.button-collapse').sideNav();
-            });
-             function handleClick()
-            {
-                var term = document.getElementById('search').value;
-                window.location.href = '/search?name='+term;
-            }
-        </script>
+          <form action="{{ url_for('search') }}" method="get" class="col s12">
+            <div class="row">
+              <div class="input-field col s4">
+                <input id="firstName" type="text" name="firstName" placeholder="First Name" />
+              </div>
+              <div class="input-field col s4">
+                <input id="lastName" type="text" name="lastName" placeholder="Last Name" />
+              </div>
+              <div class="input-field col s4">
+                <input id="state" type="text" name="state" placeholder="State" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Find My Legislator
+                </button>
+              </div>
+          </form>
         </div>
       </div>
     </div>

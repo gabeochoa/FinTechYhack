@@ -17,21 +17,8 @@ first_name, middle_name, computed_chamber, state, last_name, computed_party, cha
       <div class="row">
         <div class="col s12">
           <h1 class="logo">Search</h1>
-           <form>
-          <input oninput="rangeInput.value=amount.value" 
-           id="click" type="text" value="Kirsten Gillebrand" name="name" 
-            />
 
-          </form>
-          <script type="text/javascript">
-            var stateObj = { foo: "bar" };
-            function change_my_url()
-            {
-               history.pushState(stateObj, "Search link.value", "/search?name="+link.value);
-            }
-            var link = document.getElementById('click');
-            link.addEventListener('click', change_my_url, false);
-            </script>
+          <p>{{ data }}</p>
 
         </div>
       </div>

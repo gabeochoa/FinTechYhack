@@ -55,3 +55,7 @@ i.down-arrow {
 i.down-arrow:hover {
 	color: #BDBDBD;
 }
+
+.input-field input[type=text] {
+    color: #FFF;
+}
