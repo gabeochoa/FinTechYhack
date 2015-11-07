@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>------</title>
+    <title>{{data['first_name']}} {{data['last_name']}}</title>
     {% include 'includes/head.html' %}
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}" />
     <link href="http://fonts.googleapis.com/css?family=Exo+2:100" rel="stylesheet" type="text/css">
@@ -18,8 +18,7 @@ first_name, middle_name, computed_chamber, state, last_name, computed_party, cha
         <div class="col s12">
           <h1 class="logo">{{data['first_name']}} {{data['last_name']}}</h1>
           <img src="{{data['photo_url']}}"/>
-          
-          <table>
+        <!--  <table>
           {% for k in data.keys() %}
               {% if data[k] %}
                 <TR>
@@ -30,6 +29,7 @@ first_name, middle_name, computed_chamber, state, last_name, computed_party, cha
               {% endif %}
           {% endfor %}
           </table>
+          !-->
         </div>
       </div>
     </div>

@@ -16,6 +16,13 @@ fn_client = fn.FiscalNoteClient(fiscalnotekey)
 def hello():
     return render_template('index.html', template_folder=tmpl_dir)
 
+@app.route("/friends/<mem_id>")
+def friends(mem_id):
+    ret = fn_client.getPersonFromID(mem_id)
+    if(ret is None):
+        return "Incorrect ID"
+    return render_template('friends.html', data=ret)
+
 @app.route("/search")
 def search():
     name = request.args.get('name')
@@ -29,6 +36,7 @@ def search():
         return redirect(uu, 200)
 
 @app.route("/person/")
+@app.route("/friends/")
 def view_profile_noid():
     return redirect("404.html")
 @app.route("/person/<mem_id>")
