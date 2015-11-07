@@ -32,7 +32,7 @@ class FiscalNoteClient(object):
         print(query)
         req = requests.get(query)
         if(req.status_code == 200):
-            ll = requests.get(query).json()
+            ll = req.json()
             return ll
         else:
             return None
@@ -44,7 +44,7 @@ class FiscalNoteClient(object):
         print(query)
         req = requests.get(query)
         if(req.status_code == 200):
-            ll = requests.get(query).json()
+            ll = req.json()
             return ll[0]['id']
         else:
             return None

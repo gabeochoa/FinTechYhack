@@ -1,4 +1,5 @@
 *.pyc
 keys.py
 venv/
+ammap_3.17.3.free/
 __pycache__/

@@ -32,7 +32,7 @@ def search():
         print("Search for " + name)
         id_n = fn_client.getIDFromName(name)
         print("ID found: " + id_n)
-        uu = "localhost:5000/Person/"+str(id_n)
+        uu = "http://localhost:5000/person/"+str(id_n)
         return redirect(uu, 200)
 
 @app.route("/person/<mem_id>")
