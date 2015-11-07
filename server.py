@@ -13,6 +13,9 @@ def hello():
     return json.dumps(fn_client.legislators(q="kevin", legislature="NY"))
 
 @app.route("/person/<mem_id>")
+def viewprofile(mem_id):
+    viewProfile(mem_id)
+    
 @app.route("/Person/<mem_id>")
 def viewProfile(mem_id):
     ret = fn_client.getPersonFromID(mem_id)
