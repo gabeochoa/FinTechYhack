@@ -35,10 +35,6 @@ def search():
         uu = "localhost:5000/Person/"+str(id_n)
         return redirect(uu, 200)
 
-@app.route("/person/")
-@app.route("/friends/")
-def view_profile_noid():
-    return redirect("404.html")
 @app.route("/person/<mem_id>")
 def viewProfile(mem_id):
     ret = fn_client.getPersonFromID(mem_id)
@@ -46,6 +42,26 @@ def viewProfile(mem_id):
         return "Incorrect ID"
     print(ret['first_name'])
     return render_template('person.html', data=ret)
+
+
+@app.errorhandler(500)
+def internal_server(e):
+    return render_template('error.html', template_folder=tmpl_dir, error=500, error_msg="Internal Server Error", 
+        return_home="Something went wrong! Let us know if it happens again!"    
+    )
+    
+@app.route("/friends/")
+@app.route("/person/")
+def page_not_found():
+    return render_template('error.html', template_folder=tmpl_dir, error=404, error_msg="Page Not Found",
+            return_home="We can't find what you're looking for."
+        )
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error.html', template_folder=tmpl_dir, error=404, error_msg="Page Not Found",
+        return_home="We can't find what you're looking for."
+    )
+
 
 if __name__ == "__main__":
     app.run(debug=True)
